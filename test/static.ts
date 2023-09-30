@@ -1,5 +1,4 @@
-import createInstance from "petal-service/dist/createInstance"
-import { ApiResponse, RequestConfig } from "petal-service";
+import { ApiResponse, RequestConfig, createInstance } from "petal-service";
 
 const {
     classDecorator, methodDecorator, paramsDecorator, fieldDecorator

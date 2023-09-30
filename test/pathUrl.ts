@@ -1,9 +1,9 @@
 import {
     classDecorator,
     paramsDecorator,
-    methodDecorator
+    methodDecorator,
+    ApiResponse, RequestConfig 
 } from "petal-service";
-import { ApiResponse, RequestConfig } from "petal-service";
 
 // 设置baseUrl和超时时间
 @classDecorator({

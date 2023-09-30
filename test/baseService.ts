@@ -1,5 +1,4 @@
-import {  BaseService, classDecorator, methodDecorator, setConfig, fieldDecorator } from "petal-service";
-import { RequestConfig } from "petal-service";
+import { RequestConfig, BaseService, classDecorator, methodDecorator, setConfig, fieldDecorator } from "petal-service";
 
 // 更新配置，比如授权信息，例如jwt, cookies
 setConfig({

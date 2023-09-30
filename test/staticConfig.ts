@@ -3,8 +3,8 @@ import {
     methodDecorator,
     setConfig,
     fieldDecorator,
+    ApiResponse, RequestConfig
 } from "petal-service";
-import { ApiResponse, RequestConfig } from "petal-service";
 
 
 // 更新配置，比如授权信息，例如jwt, cookies

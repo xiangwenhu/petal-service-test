@@ -1,7 +1,7 @@
 import {
-    classDecorator, methodDecorator, setConfig, paramsDecorator, fieldDecorator
+    classDecorator, methodDecorator, setConfig, paramsDecorator, fieldDecorator,
+    ApiResponse, RequestConfig
 } from "petal-service";
-import { ApiResponse, RequestConfig } from "petal-service";
 
 setConfig({
     headers: {
