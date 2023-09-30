@@ -1,5 +1,17 @@
 
+import "petal-service";
 import { RequestConfig } from "petal-service";
+import axios from "axios";
+
+
+// 自定义 request
+const instance = axios.create();
+instance.interceptors.request.use(config=>{
+    console.log("instance.interceptors.request config.baseUrl",  config.baseURL);
+    return config;
+})
+
+setPetalRequestInstance(instance);
 
 
 // 更新配置，比如授权信息，例如jwt, cookies
