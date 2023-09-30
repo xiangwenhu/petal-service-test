@@ -9,11 +9,11 @@
 
 ### 本地搭建流程
 1. 把本项目和petal-service 放在同一目录
-2. `npm install ../light-service-master`
+2. `npm install ../petal-service`
 3. 查看 package.json
 ```json
   "dependencies": {
-    "petal-service": "file:../light-service-master"
+    "petal-service": "file:../petal-service"
   },
 ```
 4. 运行
