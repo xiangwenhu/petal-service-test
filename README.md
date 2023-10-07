@@ -1,9 +1,8 @@
 ## [petal-service](https://github.com/xiangwenhu/petal-service) 的demo项目
 
 ## 本地测试流程
-1. 把本项目和petal-service 放在同一目录
-2. ```npm  install```
-3. 进入指定文件， 右键 `Run Code`
+1. ```npm  install```
+2. 进入指定文件， 右键 `Run Code`
 
 
 ## 示例清单
