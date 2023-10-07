@@ -1,4 +1,7 @@
-import { RequestConfig, BaseService, classDecorator, methodDecorator, setConfig, fieldDecorator } from "petal-service";
+import { RequestConfig, BaseService, classDecorator, methodDecorator, setConfig, fieldDecorator, enableLog } from "petal-service";
+
+// 允许打印日志
+enableLog(true);
 
 // 更新配置，比如授权信息，例如jwt, cookies
 setConfig({
