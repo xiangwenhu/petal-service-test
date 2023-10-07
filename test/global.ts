@@ -1,22 +1,6 @@
 
 import "petal-service";
 import { RequestConfig } from "petal-service";
-import axios from "axios";
-
-// 自定义 request
-const instance = axios.create();
-instance.interceptors.request.use(config=>{
-    console.log("instance.interceptors.request config.baseUrl",  config.baseURL);
-    return config;
-})
-petalSetRequestInstance(instance);
-
-// 更新配置，比如授权信息，例如jwt, cookies
-petalSetConfig({
-    headers: {
-        token: "token",
-    },
-});
 
 // 设置baseUrl和超时时间
 @petalClassDecorator({

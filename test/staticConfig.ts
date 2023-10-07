@@ -1,29 +1,15 @@
 import {
-    classDecorator,
-    methodDecorator,
-    setConfig,
+    ApiResponse, RequestConfig, enableLog,
     fieldDecorator,
-    ApiResponse, RequestConfig
+    methodDecorator
 } from "petal-service";
 
+enableLog(true);
 
-// 更新配置，比如授权信息，例如jwt, cookies
-setConfig({
-    headers: {
-        token: "token",
-    },
-});
-
-
-// 设置baseUrl和超时时间
-@classDecorator({
-    timeout: 60 * 1000,
-    baseURL: "http://www.example.com"
-})
 class DemoService {
-
     static config: RequestConfig = {
-        timeout: 90 * 1000
+        timeout: 90 * 1000,
+        baseURL: "http://www.example.com"
     };
 
     static res: ApiResponse<any>;
