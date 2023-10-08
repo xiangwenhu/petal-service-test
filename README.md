@@ -16,3 +16,5 @@
 * [path路径参数](./test/pathUrl.ts)
 * [静态方法和静态属性配置](./test/static.ts)
 * [静态属性config作为配置](./test/staticConfig.ts)
+* [accessor](./test/accessor.ts)
+* [静态accessor](./test/accessor-static.ts)
