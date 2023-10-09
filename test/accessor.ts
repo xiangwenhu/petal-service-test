@@ -5,7 +5,7 @@ enableLog();
 class DemoService<R = any> extends BaseService<R>{
 
     @methodDecorator({
-        url: "https://baidu.com/"  //  url: "https://baidu.com 会报错
+        url: "https://baidu.com"
     })
     async getIndex(this: DemoService<string>): Promise<string> {
         return this.res.data;

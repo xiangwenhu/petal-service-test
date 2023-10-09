@@ -1,7 +1,8 @@
 import {
     ApiResponse, RequestConfig, enableLog,
     fieldDecorator,
-    methodDecorator
+    methodDecorator,
+    paramsDecorator
 } from "petal-service";
 
 enableLog(true);
@@ -17,6 +18,9 @@ class DemoService {
     @methodDecorator({
         method: "get",
         url: "",
+    })
+    @paramsDecorator({
+        hasParams: true
     })
     static async getIndex(
         params: any,

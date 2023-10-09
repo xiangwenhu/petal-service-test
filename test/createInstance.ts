@@ -5,7 +5,8 @@ const {
     methodDecorator,
     setConfig,
     fieldDecorator,
-    paramsDecorator
+    paramsDecorator,
+    enableLog
 } = createInstance({
     defaults: {
         baseURL: "https://github.com",
@@ -13,6 +14,7 @@ const {
     }
 });
 
+enableLog();
 // 更新配置，比如授权信息，例如jwt, cookies
 setConfig({
     headers: {
@@ -36,8 +38,6 @@ class DemoService<R = any> {
     })
     @paramsDecorator({
         hasParams: true,
-        hasBody: false,
-        hasConfig: true
     })
     public async getIndex(
         this: DemoService<string>,

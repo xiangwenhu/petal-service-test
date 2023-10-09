@@ -11,6 +11,8 @@
 * [创建新实例createInstance](./test//createInstance.ts)
 * [全局默认实例 + 自定义request + 拦截器](./test/global-customRequest.ts)
 * [全局默认实例](./test/global.ts)
+* [getter](./test/getter.ts)
+* [静态getter](./test/getter-static.ts)
 * [继承](./test/inherit.ts)
 * [class config属性作为配置](./test/instanceConfig.ts)
 * [path路径参数](./test/pathUrl.ts)

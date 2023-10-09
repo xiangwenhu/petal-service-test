@@ -1,6 +1,5 @@
 
-import "petal-service";
-import { RequestConfig } from "petal-service";
+import { RequestConfig, enableLog } from "petal-service";
 import axios from "axios";
 
 // 自定义 request
@@ -11,7 +10,7 @@ instance.interceptors.request.use(config=>{
 })
 petalSetRequestInstance(instance);
 
-
+enableLog();
 // 设置baseUrl和超时时间
 @petalClassDecorator({
     timeout: 60 * 1000,
@@ -26,7 +25,6 @@ class DemoService<R> extends PetalBaseService<R>{
     })
     static async getIndex(
         this: DemoService<string>,
-        _params: any,
         _config: RequestConfig,
     ){
         // 不写任何返回， 默认会返回 this.res.data
@@ -37,7 +35,6 @@ class DemoService<R> extends PetalBaseService<R>{
 
 DemoService
     .getIndex(
-        { since: "monthly" },
         {
             headers: { userId: 1 },
         },

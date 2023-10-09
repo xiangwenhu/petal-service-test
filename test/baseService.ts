@@ -1,4 +1,4 @@
-import { RequestConfig, BaseService, classDecorator, methodDecorator, setConfig, fieldDecorator, enableLog } from "petal-service";
+import { RequestConfig, BaseService, classDecorator, methodDecorator, setConfig, fieldDecorator, enableLog, paramsDecorator } from "petal-service";
 
 // 允许打印日志
 enableLog(true);
@@ -21,6 +21,9 @@ class DemoService<R> extends BaseService<R>{
     @methodDecorator({
         method: "get",
         url: "",
+    })
+    @paramsDecorator({
+        hasParams: true
     })
     static async getIndex(
         this: DemoService<string>,
