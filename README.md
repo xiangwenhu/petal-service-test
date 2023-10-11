@@ -2,7 +2,10 @@
 
 ## 本地测试流程
 1. ```npm  install```
-2. 进入指定文件， 右键 `Run Code`
+2. VSCode 安装 Code Runner 插件
+3. 全局安装 `npm install ts-node typescript -g`
+4. 进入指定文件， 右键 `Run Code`
+
 
 
 ## 示例清单
