@@ -23,3 +23,4 @@
 * [静态属性config作为配置](./test/staticConfig.ts)
 * [accessor](./test/accessor.ts)
 * [静态accessor](./test/accessor-static.ts)
+* [查询方法的config](./test/getMethodConfig.ts)
