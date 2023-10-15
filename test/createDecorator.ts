@@ -1,14 +1,14 @@
+import "petal-service";
 import {
-    classDecorator,
-    createDecorator,
-    methodDecorator,
     ApiResponse,
     RequestConfig,
 } from "petal-service";
+
+petalEnableLog();
 /**
  * 通过filed自定义headers
  */
-const headersDecorator = createDecorator(({ dataStore }) => {
+const headersDecorator = petalCreateDecorator(({ dataStore }) => {
     return function (
         target: any,
         context: ClassFieldDecoratorContext<Function>
@@ -25,13 +25,13 @@ const headersDecorator = createDecorator(({ dataStore }) => {
 });
 
 // 设置baseUrl和超时时间
-@classDecorator({
+@petalClassDecorator({
     baseURL: "https://www.baidu.com",
 })
 class DemoService<R = any> {
     protected res!: ApiResponse<R>;
 
-    @methodDecorator({
+    @petalMethodDecorator({
         method: "get",
         url: "",
     })

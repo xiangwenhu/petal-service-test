@@ -1,4 +1,5 @@
-import { ApiResponse, RequestConfig, createInstance } from "petal-service";
+import "petal-service";
+import { ApiResponse, RequestConfig } from "petal-service";
 
 const {
     classDecorator,
@@ -7,7 +8,7 @@ const {
     fieldDecorator,
     paramsDecorator,
     enableLog
-} = createInstance({
+} = petalCreateInstance({
     defaults: {
         baseURL: "https://github.com",
         timeout: 30 * 1000
