@@ -4,7 +4,12 @@
 1. ```npm  install```
 2. VSCode 安装 Code Runner 插件
 3. 全局安装 `npm install ts-node typescript -g`
-4. 进入指定文件， 右键 `Run Code`
+4. 进入指定文件， 右键 `Run Code`   
+   
+或者   
+1. ```npm  install```
+2. 在 `test/index.ts` 引入需要测试的示例
+3. ```npm run test```
 
 
 
