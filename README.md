@@ -24,3 +24,4 @@
 * [accessor](./test/accessor.ts)
 * [静态accessor](./test/accessor-static.ts)
 * [查询方法的config](./test/getMethodConfig.ts)
+* [装饰非异步方法](./test/noPromiseMethod.ts.ts)
