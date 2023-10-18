@@ -1,17 +1,17 @@
-import { accessorDecorator, enableLog, BaseService, methodDecorator } from "petal-service";
+import  "petal-service";
 
-enableLog();
+petalEnableLog();
 
-class DemoService<R = any> extends BaseService<R>{
+class DemoService<R = any> extends PetalBaseService<R>{
 
-    @methodDecorator({
+    @petalMethodDecorator({
         url: "https://baidu.com"
     })
     async getIndex(this: DemoService<string>): Promise<string> {
         return this.res.data;
     }
 
-     @accessorDecorator()
+    @petalAccessorDecorator()
      accessor timeout: number = 15 * 1000;
 
 }
