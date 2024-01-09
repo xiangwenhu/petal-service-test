@@ -11,9 +11,6 @@ petalSetConfig({
     },
 });
 
-
-History
-
 // 设置baseUrl和超时时间
 @petalClassDecorator({
     timeout: 60 * 1000,
