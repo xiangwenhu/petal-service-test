@@ -1,12 +1,11 @@
 import "petal-service";
-import { ApiResponse, RequestConfig } from "petal-service";
+import { ApiResponse, RequestConfig, RequestParams } from "petal-service";
 
 const {
     classDecorator,
     methodDecorator,
     setConfig,
     fieldDecorator,
-    paramsDecorator,
     enableLog
 } = petalCreateInstance({
     defaults: {
@@ -37,13 +36,9 @@ class DemoService<R = any> {
         method: "get",
         url: "",
     })
-    @paramsDecorator({
-        hasParams: true,
-    })
     public async getIndex(
         this: DemoService<string>,
-        params: any,
-        config: RequestConfig,
+        _params: Pick<RequestParams, "params" | "config">,
     ) {
         const something = this.getSomething();
         console.log("something: ", something);
@@ -67,9 +62,11 @@ class DemoService<R = any> {
 const serviceA = new DemoService();
 serviceA
     .getIndex(
-        { since: "monthly" },
         {
-            headers: { userId: 1 },
+            params: { since: "monthly" },
+            config: {
+                headers: { userId: 1 },
+            }
         },
     )
     .then((res: any) => {

@@ -2,6 +2,7 @@ import "petal-service";
 import {
     ApiResponse,
     RequestConfig,
+    RequestParams,
 } from "petal-service";
 
 petalEnableLog();
@@ -37,7 +38,7 @@ class DemoService<R = any> {
     })
     public async getIndex(
         this: DemoService<string>,
-        _config: RequestConfig
+        _params: Pick<RequestParams, "config">
     ) {
         // 不写任何返回， 默认会返回 this.res.data
         return this.res.data;
@@ -51,7 +52,9 @@ const serviceA = new DemoService();
 serviceA
     .getIndex(
         {
-            headers: { secId: "xx-xx" },
+            config: {
+                headers: { secId: "xx-xx" }
+            }
         }
     )
     .then((res) => {

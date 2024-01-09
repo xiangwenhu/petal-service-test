@@ -1,8 +1,7 @@
 import {
     classDecorator,
-    paramsDecorator,
     methodDecorator,
-    ApiResponse, RequestConfig 
+    ApiResponse, RequestConfig, RequestParams
 } from "petal-service";
 
 // 设置baseUrl和超时时间
@@ -18,13 +17,10 @@ class DemoService<R = any> {
         method: "get",
         url: "/course/:type",
     })
-    @paramsDecorator({
-        hasParams: false,
-    })
+
     public async getIndex(
         this: DemoService<string>,
-        _pathParams: Record<string, string | number>,
-        _config: RequestConfig,
+        _params: Pick<RequestParams, "config" | "path">
     ) {
         // 不写任何返回， 默认会返回 this.res.data
         // return this.res!.data
@@ -36,10 +32,12 @@ const serviceA = new DemoService();
 serviceA
     .getIndex(
         {
-            type: 'frontend'
-        },
-        {
-            headers: { userId: 1 },
+            path: {
+                type: 'frontend'
+            },
+            config: {
+                headers: { userId: 1 },
+            }
         },
     )
     .then((res) => {

@@ -1,7 +1,7 @@
-import { ApiResponse, RequestConfig, createInstance } from "petal-service";
+import { ApiResponse, RequestConfig, RequestParams, createInstance } from "petal-service";
 
 const {
-    classDecorator, methodDecorator, paramsDecorator, fieldDecorator
+    classDecorator, methodDecorator, fieldDecorator
 } = createInstance({
     defaults: {
         baseURL: "https://juejin.cn"
@@ -20,13 +20,9 @@ class DemoService {
         method: "get",
         url: "/course/:type",
     })
-    @paramsDecorator({
-        hasParams: false
-    })
     static async getCourse(
         this: typeof DemoService,
-        _pathParams: Record<string, string | number>,
-        _config: RequestConfig,
+        _params: Pick<RequestParams, "path" | "config">
     ) {
         // 不写任何返回， 默认会返回 this.res.data
         // return this.res!.data
@@ -40,10 +36,12 @@ class DemoService {
 DemoService
     .getCourse(
         {
-            type: "frontend"
-        },
-        {
-            headers: { userId: 1 },
+            path: {
+                type: "frontend"
+            },
+            config: {
+                headers: { userId: 1 },
+            }
         },
     )
     .then((res) => {

@@ -1,4 +1,4 @@
-import { RequestConfig, BaseService, classDecorator, methodDecorator, setConfig, fieldDecorator, enableLog, paramsDecorator } from "petal-service";
+import { RequestConfig, BaseService, classDecorator, methodDecorator, setConfig, fieldDecorator, enableLog, RequestParams, } from "petal-service";
 
 // 允许打印日志
 enableLog(true);
@@ -15,13 +15,9 @@ class DemoService<R> extends BaseService<R>{
         method: "get",
         url: "",
     })
-    @paramsDecorator({
-        hasParams: true
-    })
     static getIndex(
         this: DemoService<any>,
-        _params: any,
-        _config: RequestConfig,
+        _params: Pick<RequestParams, "config" | "params">
     ): Promise<string> {
         // 不写任何返回， 默认会返回 this.res.data
         return this.res.data
@@ -32,9 +28,11 @@ class DemoService<R> extends BaseService<R>{
 // DemoService.getIndex 本身不是异步方法，内部会包裹成为异步方法
 DemoService
     .getIndex(
-        { since: "monthly" },
         {
-            headers: { userId: 1 },
+            params: { since: "monthly" },
+            config: {
+                headers: { userId: 1 },
+            }
         },
     )
     .then((res: any) => {

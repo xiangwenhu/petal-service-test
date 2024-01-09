@@ -1,6 +1,6 @@
 import {
-    classDecorator, methodDecorator, setConfig, paramsDecorator, fieldDecorator,
-    ApiResponse, RequestConfig, enableLog
+    classDecorator, methodDecorator, setConfig, fieldDecorator,
+    ApiResponse, RequestConfig, enableLog, RequestParams
 } from "petal-service";
 
 enableLog();
@@ -42,13 +42,9 @@ class SubDemoService extends DemoService {
         method: "get",
         url: "",
     })
-    @paramsDecorator({
-        hasParams: true,
-    })
     async getBingIndex<R = string>(
         this: SubDemoService,
-        _params: any,
-        _config: RequestConfig
+        _params: Pick<RequestParams, "config" | "params">
     ): Promise<string> {
         return this.res!.data;
     }
@@ -74,9 +70,11 @@ serviceA
 const subService = new SubDemoService();
 subService
     .getBingIndex(
-        { since: "monthly" },
         {
-            headers: { a: 1 },
+            params: { since: "monthly" },
+            config: {
+                headers: { a: 1 },
+            }
         }
     )
     .then((res) => {

@@ -11,7 +11,17 @@
 2. 在 `test/index.ts` 引入需要测试的示例
 3. ```npm run test```
 
-
+## 本地调试
+1. 替换 petal-service 包的路径
+```
+  "dependencies": {
+    "axios": "^1.5.1",
+    "petal-service": "file:D:/projects/github-my/petal-service/petal-service-0.0.34.tgz",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+```
+2. npm install
 
 ## 示例清单
 * [BaseService + 日志开关](./test/baseService.ts)

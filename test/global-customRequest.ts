@@ -1,5 +1,5 @@
 import "petal-service";
-import { RequestConfig } from "petal-service";
+import { RequestConfig, RequestParams } from "petal-service";
 
 petalSetRequestInstance(({ createRequestInstance, defaults }) => {
     const instance = createRequestInstance(defaults);
@@ -25,14 +25,14 @@ class DemoService<R> extends PetalBaseService<R> {
         method: "get",
         url: "",
     })
-    static async getIndex(this: DemoService<string>, _config: RequestConfig) {
+    static async getIndex(this: DemoService<string>, _params: Pick<RequestParams, "config">) {
         // 不写任何返回， 默认会返回 this.res.data
         return this.res.data;
     }
 }
 
 DemoService.getIndex({
-    headers: { userId: 1 },
+    config: { headers: { userId: 1 } },
 })
     .then((res: any) => {
         console.log("res DemoService static getIndex:", res.length);

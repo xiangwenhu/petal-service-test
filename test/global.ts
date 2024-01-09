@@ -1,6 +1,6 @@
 
 import "petal-service";
-import { RequestConfig, enableLog } from "petal-service";
+import { RequestConfig, RequestParams, enableLog } from "petal-service";
 
 enableLog();
 // 设置baseUrl和超时时间
@@ -15,14 +15,10 @@ class DemoService<R> extends PetalBaseService<R>{
         method: "get",
         url: "",
     })
-    @petalParamsDecorator({
-        hasParams: true
-    })
     static async getIndex(
         this: DemoService<string>,
-        _params: any,
-        _config: RequestConfig,
-    ){
+        _params: Pick<RequestParams, "params" | "config">
+    ) {
         // 不写任何返回， 默认会返回 this.res.data
         return this.res.data
     }
@@ -34,9 +30,11 @@ class DemoService<R> extends PetalBaseService<R>{
 
 DemoService
     .getIndex(
-        { since: "monthly" },
         {
-            headers: { userId: 1 },
+            params: { since: "monthly" },
+            config: {
+                headers: { userId: 1 },
+            }
         },
     )
     .then((res: any) => {

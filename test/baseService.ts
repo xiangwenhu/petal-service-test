@@ -1,5 +1,5 @@
 import "petal-service";
-import { RequestConfig } from "petal-service";
+import { RequestParams } from "petal-service";
 
 // 允许打印日志
 petalEnableLog(true);
@@ -11,6 +11,9 @@ petalSetConfig({
     },
 });
 
+
+History
+
 // 设置baseUrl和超时时间
 @petalClassDecorator({
     timeout: 60 * 1000,
@@ -19,16 +22,12 @@ petalSetConfig({
 class DemoService<R> extends PetalBaseService<R> {
     // 设置 api method 请求参数，最主要的是url, params, data和额外的config
     @petalMethodDecorator({
-        method: "get",
+        method: "post",
         url: "",
-    })
-    @petalParamsDecorator({
-        hasParams: true,
     })
     static async getIndex(
         this: DemoService<string>,
-        _params: any,
-        _config: RequestConfig
+        _params: Pick<RequestParams<number, { since: string }>, "params" | "config">,
     ) {
         // 不写任何返回， 默认会返回 this.res.data
         return this.res.data;
@@ -40,9 +39,11 @@ class DemoService<R> extends PetalBaseService<R> {
 }
 
 DemoService.getIndex(
-    { since: "monthly" },
     {
-        headers: { userId: 1 },
+        params: { since: "monthly" },
+        config: {
+            headers: { userId: 1 },
+        },
     }
 )
     .then((res: any) => {
