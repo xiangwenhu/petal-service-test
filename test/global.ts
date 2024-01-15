@@ -1,8 +1,7 @@
 
 import "petal-service";
-import { RequestConfig, RequestParams, enableLog } from "petal-service";
 
-enableLog();
+petalEnableLog();
 // 设置baseUrl和超时时间
 @petalClassDecorator({
     timeout: 60 * 1000,
@@ -17,7 +16,7 @@ class DemoService<R> extends PetalBaseService<R>{
     })
     static async getIndex(
         this: DemoService<string>,
-        _params: Pick<RequestParams, "params" | "config">
+        _params: Pick<PetalRequestParams, "params" | "config">
     ) {
         // 不写任何返回， 默认会返回 this.res.data
         return this.res.data

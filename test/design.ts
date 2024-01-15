@@ -1,4 +1,4 @@
-import { accessorDecorator, BaseService, classDecorator, fieldDecorator, getterDecorator, methodDecorator, RequestConfig, enableLog } from "petal-service";
+import { accessorDecorator, BaseService, classDecorator, fieldDecorator, getterDecorator, methodDecorator, enableLog } from "petal-service";
 
 
 enableLog();
@@ -6,7 +6,7 @@ enableLog();
 @classDecorator({baseURL: "https://base.com"})
 class DemoService<R = any> extends BaseService<R>{
 
-    config: RequestConfig = {};
+    config: PetalRequestConfig = {};
 
     @methodDecorator({
         url: ""
@@ -28,7 +28,7 @@ class DemoService<R = any> extends BaseService<R>{
         AppId: 1
     }
 
-    static config: RequestConfig = {};
+    static config: PetalRequestConfig = {};
 
     @accessorDecorator("timeout")
     static accessor timeout: number = 20 * 1000;

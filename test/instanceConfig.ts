@@ -1,6 +1,4 @@
 import {
-    ApiResponse, RequestConfig,
-    RequestParams,
     enableLog,
     methodDecorator,
 } from "petal-service";
@@ -8,12 +6,12 @@ import {
 enableLog(true);
 
 class DemoService<R = any> {
-    private config: RequestConfig = {
+    private config: PetalRequestConfig = {
         timeout: 90 * 1000,
         baseURL: "http://www.example.com",
     };
 
-    protected res!: ApiResponse<R>;
+    protected res!: PetalApiResponse<R>;
     // 设置 api method 请求参数，最主要的是url, params, data和额外的config
     @methodDecorator({
         method: "get",
@@ -21,7 +19,7 @@ class DemoService<R = any> {
     })
     public async getIndex(
         this: DemoService<string>,
-        _params: Pick<RequestParams, "config" | "params">
+        _params: Pick<PetalRequestParams<any, { since: string }>, "config" | "params">
     ) {
         // 不写任何返回， 默认会返回 this.res.data
         // return this.res!.data

@@ -1,6 +1,6 @@
 import {
     classDecorator, methodDecorator, setConfig, fieldDecorator,
-    ApiResponse, RequestConfig, enableLog, RequestParams
+    ApiResponse,  enableLog,
 } from "petal-service";
 
 enableLog();
@@ -22,7 +22,7 @@ class DemoService<R = any> {
     })
     public async getIndex(
         this: DemoService,
-        _config: RequestConfig
+        _config: PetalRequestConfig
     ) {
         return this.res.data;
     }
@@ -44,7 +44,7 @@ class SubDemoService extends DemoService {
     })
     async getBingIndex<R = string>(
         this: SubDemoService,
-        _params: Pick<RequestParams, "config" | "params">
+        _params: Pick<PetalRequestParams, "config" | "params">
     ): Promise<string> {
         return this.res!.data;
     }

@@ -1,5 +1,4 @@
 import "petal-service";
-import { ApiResponse, RequestConfig, RequestParams } from "petal-service";
 
 const {
     classDecorator,
@@ -30,7 +29,7 @@ setConfig({
 })
 class DemoService<R = any> {
 
-    protected res!: ApiResponse<R>;
+    protected res!: PetalApiResponse<R>;
     // 设置 api method 请求参数，最主要的是url, params, data和额外的config
     @methodDecorator({
         method: "get",
@@ -38,7 +37,7 @@ class DemoService<R = any> {
     })
     public async getIndex(
         this: DemoService<string>,
-        _params: Pick<RequestParams, "params" | "config">,
+        _params: Pick<PetalRequestParams, "params" | "config">,
     ) {
         const something = this.getSomething();
         console.log("something: ", something);
