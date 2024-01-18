@@ -37,7 +37,9 @@ class DemoService<R = any> {
     })
     public async getIndex(
         this: DemoService<string>,
-        _params: Pick<PetalRequestParams, "params" | "config">,
+        _params: PetalParamsPick.Params<{
+            since: string
+        }>,
     ) {
         const something = this.getSomething();
         console.log("something: ", something);

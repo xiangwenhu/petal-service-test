@@ -23,7 +23,7 @@ class DemoService<R> extends PetalBaseService<R> {
     })
     static async getIndex(
         this: DemoService<string>,
-        _params: Pick<PetalRequestParams<number, { since: string }>, "params" | "config">,
+        _params: PetalParamsPick.Params<{ since: string }>,
     ) {
         // 不写任何返回， 默认会返回 this.res.data
         return this.res.data;

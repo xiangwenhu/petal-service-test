@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "ts-node ./test/index.ts"
+    "m-install": "npm cache clean --force && npm install"
   },
   "dependencies": {
     "axios": "^1.5.1",
-    "petal-service": "0.0.35",
+    "petal-service": "file:D:/projects/github-my/petal-service/petal-service-0.0.36.tgz",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },

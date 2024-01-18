@@ -17,7 +17,9 @@ class DemoService<R> extends BaseService<R>{
     })
     static getIndex(
         this: DemoService<any>,
-        _params: Pick<RequestParams, "config" | "params">
+        _params: PetalParamsPick.Params<{
+            since: string
+        }>
     ): Promise<string> {
         // 不写任何返回， 默认会返回 this.res.data
         return this.res.data
