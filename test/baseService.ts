@@ -12,10 +12,14 @@ petalSetConfig({
 
 // 设置baseUrl和超时时间
 @petalClassDecorator({
+    timeout: 30 * 1000,
+    baseURL: "http://www.jd.com",
+})
+@petalClassDecorator({
     timeout: 60 * 1000,
     baseURL: "http://www.example.com",
 })
-class DemoService<R> extends PetalBaseService<R> {
+class DemoService<R = any> extends PetalBaseService<R> {
     // 设置 api method 请求参数，最主要的是url, params, data和额外的config
     @petalMethodDecorator({
         method: "post",
@@ -42,8 +46,8 @@ DemoService.getIndex(
         },
     }
 )
-    .then((res: any) => {
-        console.log("res DemoService static getIndex:", res.length);
+    .then((res) => {
+        console.log("res DemoService static getIndex:", res);
     })
     .catch((err) => {
         console.log("error DemoService static getIndex:", err);

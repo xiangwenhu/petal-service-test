@@ -15,6 +15,10 @@ class DemoService<R = any> {
     // 设置 api method 请求参数，最主要的是url, params, data和额外的config
     @methodDecorator({
         method: "get",
+        url: "http://www.jd.com",
+    })
+    @methodDecorator({
+        method: "get",
         url: "",
     })
     public async getIndex(
@@ -24,7 +28,7 @@ class DemoService<R = any> {
         }>
     ) {
         // 不写任何返回， 默认会返回 this.res.data
-        // return this.res!.data
+        return this.res!.data
     }
 }
 
@@ -38,8 +42,8 @@ serviceA
             }
         }
     )
-    .then((res: any) => {
-        console.log("res serviceA getIndex:", res.length);
+    .then((res) => {
+        console.log("res serviceA getIndex:", res);
     })
     .catch((err) => {
         console.log("error serviceA getIndex:", err);
