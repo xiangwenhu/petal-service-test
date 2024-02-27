@@ -14,4 +14,4 @@
 // import "./pathUrl";
 // import "./static";
 // import "./staticConfig";
-import "./statistics";
+// import "./statistics";
