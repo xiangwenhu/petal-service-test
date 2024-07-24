@@ -12,23 +12,26 @@
 3. ```npm run test```
 
 ## 本地调试
-1. 替换 petal-service 包的路径
+1. petal-service 设置版本 `x.x.x-tx` 先执行 npm run bp
+2. 替换 petal-service 包的路径
 ```
   "dependencies": {
     "axios": "^1.5.1",
-    "petal-service": "file:D:/projects/github-my/petal-service/petal-service-0.0.34.tgz",
+    "petal-service": "file:D:/projects/github-my/petal-service/petal-service-0.0.42.tgz",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },
 ```
-2. npm install
+3. npm install
 
 ## 示例清单
 * [BaseService + 日志开关](./test/baseService.ts)
 * [自定义装饰器](./test/createDecorator.ts)
-* [创建新实例createInstance](./test//createInstance.ts)
-* [全局默认实例方法 + 自定义request + 拦截器](./test/global-customRequest.ts)
-* [全局默认实例方法](./test/global.ts)
+* [创建新实例](./test//createInstance.ts)
+* [创建新实例 + createRequester ](./test/createInstance-createRequester.ts)
+* [默认实例方法 + 拦截器](./test/global-interceptors.ts)
+* [使用自定义的requestor](./test/useCustomRequestor.ts)
+* [默认实例方法](./test/global.ts)
 * [getter](./test/getter.ts)
 * [静态getter](./test/getter-static.ts)
 * [继承](./test/inherit.ts)
