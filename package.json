@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "axios": "^1.5.1",
-    "petal-service": "file:D:/projects/github-my/petal-service/petal-service-0.0.42-t3.tgz",
+    "petal-service": "^0.0.42",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },
