@@ -30,7 +30,7 @@
 * [创建新实例](./test//createInstance.ts)
 * [创建新实例 + createRequester ](./test/createInstance-createRequester.ts)
 * [默认实例方法 + 拦截器](./test/global-interceptors.ts)
-* [使用自定义的requestor](./test/useCustomRequestor.ts)
+* [使用自定义的requestor](./test/setRequestor.ts)
 * [默认实例方法](./test/global.ts)
 * [getter](./test/getter.ts)
 * [静态getter](./test/getter-static.ts)

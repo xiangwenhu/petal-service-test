@@ -1,6 +1,8 @@
 import "petal-service";
 
-petalRequester.interceptors.request.use((config) => {
+const requestor = petalGetRequester();
+
+requestor.interceptors.request.use((config) => {
     console.log(
         "instance.interceptors.request config",
         config
