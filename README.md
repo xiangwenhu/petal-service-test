@@ -45,3 +45,4 @@
 * [方法统计](./test/staticConfig.ts)
 * [使用全局暴露的实例方法执行方法统计](./test/global-statistics.ts)
 * [装饰非异步方法](./test/noPromiseMethod.ts)
+* [对返回结果处理](./test/handleResult.ts)
