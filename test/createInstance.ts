@@ -43,7 +43,7 @@ class DemoService<R = any> {
     ) {
         const something = this.getSomething();
         console.log("something: ", something);
-        // 不写任何返回， 默认会返回 this.res.data
+       
         // return this.res!.data
     }
 

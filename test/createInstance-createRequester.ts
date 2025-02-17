@@ -1,5 +1,5 @@
 import "petal-service"
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
 
 const { classDecorator, methodDecorator } = petalCreateInstance({
     createRequester(){
@@ -13,7 +13,7 @@ const { classDecorator, methodDecorator } = petalCreateInstance({
         })
 
 
-        return instance;
+        return instance as any;
     }
 })
 
@@ -30,7 +30,7 @@ class DemoService<R> extends PetalBaseService<R> {
         url: "",
     })
     static async getIndex(this: DemoService<string>, _params: PetalParamsPick.Native) {
-        // 不写任何返回， 默认会返回 this.res.data
+       
         return this.res.data;
     }
 }

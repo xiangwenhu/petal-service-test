@@ -21,7 +21,7 @@ class DemoService<R> extends BaseService<R>{
             since: string
         }>
     ): Promise<string> {
-        // 不写任何返回， 默认会返回 this.res.data
+       
         return this.res.data
     }
 
